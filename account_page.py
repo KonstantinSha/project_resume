@@ -6,7 +6,6 @@ from Project_resume.utilities.logger import Logger
 import allure
 
 
-
 class Account_page(Base):
 
     def __init__(self, driver):

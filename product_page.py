@@ -13,7 +13,6 @@ class Product_page(Base):
         super().__init__(driver)
         self.driver = driver
 
-
     # Locators
 
     pp_product_name = "//*[@id='product-8400941969']/div/div/div[4]/div[1]/h1"
@@ -57,14 +56,10 @@ class Product_page(Base):
     def read_pp_product_name(self):
         value_pp_product_name = self.get_pp_product_name().text
         print(value_pp_product_name)
-        # assert value_pp_product_name == value_product_name
-        # print("Product name GOOD")
 
     def read_pp_product_price(self):
         value_pp_product_price = self.get_pp_product_price().text
         print(value_pp_product_price)
-        # assert value_pp_product_price == value_product_price
-        # print ("Price GOOD")
 
     def click_button_colour(self):
         self.get_button_colour().click()
@@ -96,6 +91,5 @@ class Product_page(Base):
             self.click_button_go_to_cart()
             self.assert_url("https://www.maxpedition.com/cart")
             Logger.add_end_step(url=self.driver.current_url, method='add_to_cart_product')
-
 
 

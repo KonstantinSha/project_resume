@@ -53,20 +53,17 @@ class Cart_page(Base):
     def read_cart_product_name(self):
         value_cart_product_name = self.get_cart_product_name().text
         print(value_cart_product_name)
-        # assert value_cart_product_name == value_product_name
-        # print("Product name GOOD")
 
     def read_cart_product_price(self):
         value_cart_product_price = self.get_cart_product_price().text
         print(value_cart_product_price)
-        # assert value_cart_product_price == value_product_price
-        # print ("Price GOOD")
+        return value_cart_product_price
 
     def read_subtotal_price(self):
         value_subtotal_price = self.get_subtotal_price().text
         print(value_subtotal_price)
-        # assert value_subtotal_price == value_cart_product_price
-        # print ("Price subtotal GOOD")
+        assert value_subtotal_price == self.read_cart_product_price()
+        print ("Price subtotal GOOD")
 
     def click_button_debit_or_credit_card(self):
         self.get_button_debit_or_credit_card().click()

@@ -58,8 +58,6 @@ class Login_page(Base):
             self.input_user_name('test9378911@gmail.ru')
             self.input_password('aser4567aser4567')
             self.click_button_enter()
-            # self.assert_url("https://www.maxpedition.com/account")
-            # time.sleep(3)
             Logger.add_end_step(url=self.driver.current_url, method='authorization')
 
 

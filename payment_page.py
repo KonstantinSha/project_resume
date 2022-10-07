@@ -1,4 +1,5 @@
 import time
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
@@ -19,7 +20,7 @@ class Payment_page(Base):
     payment_page_product_name = "//*[@id='order-summary']/div/div[1]/div/table/tbody/tr/th/span[1]"
     payment_page_product_price = "//*[@id='order-summary']/div/div[1]/div/table/tbody/tr/td[3]/span"
     payment_page_subtotal_price = "//*[@id='order-summary']/div/div[3]/table/tbody/tr[1]/td/span"
-    total = "//span[@class='payment-due__currency remove-while-loading']"
+    total = "//span[@class='payment-due__price skeleton-while-loading--lg']"
     email = "//*[@id='checkout_email']"
     first_name = "//*[@id='checkout_shipping_address_first_name']"
     last_name = "//*[@id='checkout_shipping_address_last_name']"
@@ -28,6 +29,7 @@ class Payment_page(Base):
     address_line_2 = "//*[@id='checkout_shipping_address_address2']"
     city = "//*[@id='checkout_shipping_address_city']"
     state = "//*[@id='checkout_shipping_address_province']"
+    state_alabama = "//*[@id='checkout_shipping_address_province']/option[2]"
     zip_code = "//*[@id='checkout_shipping_address_zip']"
     phone = "//*[@id='checkout_shipping_address_phone']"
     button_continue = "//*[@id='continue_button']"
@@ -83,6 +85,10 @@ class Payment_page(Base):
         return WebDriverWait(self.driver, 30).until(
             expected_conditions.element_to_be_clickable((By.XPATH, self.state)))
 
+    def get_state_alabama(self):
+        return WebDriverWait(self.driver, 30).until(
+            expected_conditions.element_to_be_clickable((By.XPATH, self.state_alabama)))
+
     def get_zip_code(self):
         return WebDriverWait(self.driver, 30).until(
             expected_conditions.element_to_be_clickable((By.XPATH, self.zip_code)))
@@ -98,33 +104,24 @@ class Payment_page(Base):
 
     # Actions
 
-
     def read_payment_page_product_name(self):
         value_payment_page_product_name = self.get_payment_page_product_name().text
         print(value_payment_page_product_name)
-        # assert payment_page_product_name == value_product_name
-        # print("Product name GOOD")
 
     def read_payment_page_product_price(self):
         value_payment_page_product_price = self.get_payment_page_product_price().text
         print(value_payment_page_product_price)
-        # assert value_payment_page_product_price == value_product_price
-        # print ("Price GOOD")
 
     def read_payment_page_subtotal_price(self):
         value_payment_page_subtotal_price = self.get_payment_page_subtotal_price().text
         print(value_payment_page_subtotal_price)
-        # assert value_subtotal_price == value_payment_page_subtotal_price
-        # print ("Price subtotal GOOD")
+        return value_payment_page_subtotal_price
 
     def read_total(self):
         value_total = self.get_total().text
         print(value_total)
-        # assert value_total == self.value_payment_page_subtotal_price()
-        # print ("Price total GOOD")
-        # "или"
-        # bar = Payment_page()
-        # bar.value_payment_page_subtotal_price()
+        assert value_total == self.read_payment_page_subtotal_price()
+        print ("Price total GOOD")
 
     def click_email(self):
 
@@ -165,8 +162,8 @@ class Payment_page(Base):
 
     def click_state(self):
         self.get_state().click()
-        self.get_state().send_keys("State")
-        print('Click state + print State')
+        self.get_state_alabama().click()
+        print('Click state + click state Alabama + print State')
 
     def click_zip_code(self):
         self.get_zip_code().click()
@@ -204,7 +201,6 @@ class Payment_page(Base):
             self.click_phone()
             # self.click_button_continue()
             self.get_screenshot()
-            time.sleep(7)
             Logger.add_end_step(url=self.driver.current_url, method='info_for_payment')
 
 
