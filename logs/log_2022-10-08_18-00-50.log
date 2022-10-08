@@ -1,0 +1,77 @@
+
+-----
+Test: Project_resume/tests/test_buy_product.py::test_buy_product_1 (call)
+Start time: 2022-10-08 18:00:55.684180
+Start name method: enter_login_page
+
+End time: 2022-10-08 18:01:17.067404
+End name method: enter_login_page
+URL: https://www.maxpedition.com/account/login
+
+-----
+
+-----
+Test: Project_resume/tests/test_buy_product.py::test_buy_product_1 (call)
+Start time: 2022-10-08 18:01:17.068404
+Start name method: authorization
+
+End time: 2022-10-08 18:01:29.395109
+End name method: authorization
+URL: https://www.maxpedition.com/challenge
+
+-----
+
+-----
+Test: Project_resume/tests/test_buy_product.py::test_buy_product_1 (call)
+Start time: 2022-10-08 18:01:29.396109
+Start name method: Enter_main_page
+
+End time: 2022-10-08 18:01:38.563633
+End name method: Enter_main_page
+URL: https://www.maxpedition.com/pages/search-results-page
+
+-----
+
+-----
+Test: Project_resume/tests/test_buy_product.py::test_buy_product_1 (call)
+Start time: 2022-10-08 18:01:38.563633
+Start name method: select_product
+
+End time: 2022-10-08 18:01:55.730615
+End name method: select_product
+URL: https://www.maxpedition.com/products/lithvore-everyday-backpack?variant=28168844369
+
+-----
+
+-----
+Test: Project_resume/tests/test_buy_product.py::test_buy_product_1 (call)
+Start time: 2022-10-08 18:01:55.731615
+Start name method: add_to_cart_product
+
+End time: 2022-10-08 18:02:03.799076
+End name method: add_to_cart_product
+URL: https://www.maxpedition.com/cart
+
+-----
+
+-----
+Test: Project_resume/tests/test_buy_product.py::test_buy_product_1 (call)
+Start time: 2022-10-08 18:02:03.800077
+Start name method: transition_to_payment
+
+End time: 2022-10-08 18:02:32.872739
+End name method: transition_to_payment
+URL: https://www.maxpedition.com/cart
+
+-----
+
+-----
+Test: Project_resume/tests/test_buy_product.py::test_buy_product_1 (call)
+Start time: 2022-10-08 18:02:32.872739
+Start name method: info_for_payment
+
+End time: 2022-10-08 18:02:49.083667
+End name method: info_for_payment
+URL: https://www.maxpedition.com/15275001/checkouts/73f32d2dc7d73903d6535a8bfd796a59?_ga=2.135211317.584020081.1665241267-323245631.1665241267
+
+-----
