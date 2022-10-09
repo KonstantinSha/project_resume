@@ -127,7 +127,7 @@ class Payment_page(Base):
 
         self.get_email().click()
         self.get_email().send_keys("test9378911@gmail.ru")
-        print('Click first name + print test9378911@gmail.ru')
+        print('Click email + print test9378911@gmail.ru')
 
     def click_first_name(self):
 
